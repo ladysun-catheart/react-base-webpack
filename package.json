@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "npx webpack --config webpack.prod.config.js",
+    "dev": "npx webpack-dev-server --config webpack.dev.config.js --open"
+  },
   "dependencies": {},
   "devDependencies": {
     "webpack": "^4.41.5",
