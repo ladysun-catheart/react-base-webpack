@@ -16,4 +16,13 @@ module.exports = {
             }
         }],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html',
+            templateParameters: {
+                title: 'Webpack Base Project'
+            }
+        })
+    ]
 }
