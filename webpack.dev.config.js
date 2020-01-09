@@ -22,6 +22,32 @@ module.exports = {
                 }
             },
             {
+                test: /\.(ttf)$/,
+                include: [path.resolve(__dirname, 'assets')],
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[contenthash].[ext]',
+                            outputPath: 'assets/fonts',
+                            publicPath: '../fonts',
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(jpg|JPG|jpeg|png)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[contenthash].[ext]',
+                            outputPath: 'assets/imgs',
+                        }
+                    }
+                ] 
+            },
+            {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 include: [path.resolve(__dirname, 'assets/style')],
@@ -34,18 +60,6 @@ module.exports = {
                         }
                     },
                     'sass-loader'
-                ]
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'assets/fonts'
-                        }
-                    }
                 ]
             },
             {

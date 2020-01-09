@@ -22,18 +22,30 @@ module.exports = {
                 }
             },
             {
-                test: /\.(ttf|TTF)$/,
+                test: /\.(ttf)$/,
                 include: [path.resolve(__dirname, 'assets')],
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
+                            name: '[name].[contenthash].[ext]',
                             outputPath: 'assets/fonts',
                             publicPath: '../fonts',
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(jpg|JPG|jpeg|png)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[contenthash].[ext]',
+                            outputPath: 'assets/imgs',
+                        }
+                    }
+                ] 
             },
             {
                 test: /\.scss$/,
