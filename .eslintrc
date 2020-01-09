@@ -1,4 +1,16 @@
 {
     "extends": ["airbnb"],
-    "parser": "babel-eslint"
+    "ignorePatterns": ["./node_modules", "assets", "webpack.dev.config.js", "webpack.prod.config.js", ".babelrc"],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "semi": [2, "never"],
+        "indent": [2, 2, { "SwitchCase": 1 }],
+        "react/jsx-indent": ["error", 2],
+        "react/prop-types": [0],
+        "import/no-extraneous-dependencies": [1]
+    }
 }

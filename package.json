@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npx webpack --config webpack.prod.config.js",
     "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint --fix ."
   },
   "dependencies": {
     "react": "^16.12.0",

@@ -1,3 +1,3 @@
-import Example from './example.jsx'
+import Example from './example'
 
 export default Example
