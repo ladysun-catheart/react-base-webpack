@@ -1,16 +1,18 @@
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     entry: './src/main.jsx',
     output: {
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.(jsx|js)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -20,8 +22,38 @@ module.exports = {
                 }
             },
             {
+                test: /\.(ttf|TTF)$/,
+                include: [path.resolve(__dirname, 'assets')],
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/fonts',
+                            publicPath: '../fonts',
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.scss$/,
                 exclude: /node_modules/,
+                include: [path.resolve(__dirname, 'assets/style')],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                include: [path.resolve(__dirname, 'src')],
                 use: [
                     'style-loader',
                     {
@@ -42,6 +74,10 @@ module.exports = {
             templateParameters: {
                 title: 'Webpack Base Project'
             }
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: './assets/style/main.css'
+        }),
+        new CleanWebpackPlugin(),
     ]
 }
