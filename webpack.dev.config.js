@@ -5,17 +5,30 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.jsx',
+  entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'bundle.js',
+  },
+  resolve: {
+    alias: {
+      ['@imgs']: path.resolve(__dirname,'assets/imgs/'),
+      ['@style']: path.resolve(__dirname,'assets/style/'),
+      ['@apis']: path.resolve(__dirname,'src/core/apis/'),
+      ['@components']: path.resolve(__dirname,'src/core/components/'),
+      ['@config']: path.resolve(__dirname,'src/core/config/'),
+      ['@literals']: path.resolve(__dirname,'src/core/literals/'),
+      ['@models']: path.resolve(__dirname,'src/core/models/'),
+      ['@store']: path.resolve(__dirname,'src/core/store/'),
+      ['@utils']: path.resolve(__dirname,'src/core/utils/')
+    }
   },
   module: {
     rules: [
       {
         test: /\.(jsx|js)$/,
-        exclude: /node_modules/,
+        exclude: ['/node_modules', '/**.test.js'],
         resolve: {
-          extensions: [".js", ".jsx"]
+          extensions: ['.js', '.jsx']
         },
         use: [
           {

@@ -1,3 +1,3 @@
-import Example from './example'
+import Card from './card'
 
-export default Example
+export default Card
