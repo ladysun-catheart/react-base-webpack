@@ -7,7 +7,15 @@
     "build": "npx webpack --config webpack.prod.config.js",
     "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint --fix ."
+    "lint:fix": "npx eslint --fix .",
+    "test:unit": "npx jest",
+    "test:e2e": ""
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|JPG|jpeg|png)$": "<rootDir>/test/fixtures/imgs.js",
+      "\\.(css|scss)$": "<rootDir>/test/fixtures/style.js"
+    }
   },
   "dependencies": {
     "react": "^16.12.0",

@@ -5,30 +5,40 @@ import {
   fireEvent,
 } from '@testing-library/react'
 import faker from 'faker'
-import Card from './example'
+import Card from './card'
 
 describe('Given a Example component...', () => {
-  test('it has a title, a description and a image', () => {
+  test('it has a title, a description and an image', () => {
     // Arrange
     faker.seed(10)
     const info = {
       title: faker.lorem.words(),
-      img: faker.image.url(),
+      img: faker.image.imageUrl(),
       imgDesc: faker.lorem.words(),
       description: faker.lorem.paragraph(),
     }
     const { getByTestId } = render(<Card {...info} onClickLike={jest.fn()} />)
     // Assert
     expect(getByTestId('card-header').textContent).toBe(info.title)
-    expect(getByTestId('card-img').textContent).toBe(info.img)
-    expect(getByTestId('card-img').textContent).toBe(info.imgDesc)
+    expect(getByTestId('card-img').src).toBe(info.img)
+    expect(getByTestId('card-img').alt).toBe(info.imgDesc)
     expect(getByTestId('card-desc').textContent).toBe(info.description)
+  })
+
+  test('', () => {
+
   })
 
   test('you can give likes!', () => {
     // Arrange
     faker.seed(10)
-    const info = { likes: faker.random.number() }
+    const info = {
+      title: faker.lorem.words(),
+      img: faker.image.imageUrl(),
+      imgDesc: faker.lorem.words(),
+      description: faker.lorem.paragraph(),
+      likes: faker.random.number(),
+    }
     const mockOnClickLike = jest.fn()
     const { getByTestId } = render(<Card {...info} onClickLike={mockOnClickLike} />)
     const btnLike = getByTestId('card-btn-likes')
@@ -36,6 +46,6 @@ describe('Given a Example component...', () => {
     // Act
     fireEvent.click(btnLike)
     // Asset
-    expect(likes.textContent).toBe(info.likes + 1)
+    expect(Number(likes.textContent)).toBe(info.likes)
   })
 })
