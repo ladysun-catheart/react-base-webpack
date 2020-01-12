@@ -9,7 +9,8 @@
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix .",
     "test:unit": "npx jest",
-    "test:e2e": ""
+    "e2e:open": "cypress open",
+    "e2e:run": "cypress run"
   },
   "jest": {
     "moduleNameMapper": {
