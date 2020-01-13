@@ -67,7 +67,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         exclude: /node_modules/,
         include: [path.resolve(__dirname, 'assets/style')],
         use: [
