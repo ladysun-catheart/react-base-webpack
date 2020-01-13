@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://localhost:9001",
+  "fileServerFolder": "./",
+  "fixturesFolder": "test/cypress/fixtures",
+  "ignoreTestFiles": "test/*.hot-update.js",
+  "integrationFolder": "test/cypress/integration",
+  "pluginsFile": "test/cypress/plugins/index.js",
+  "screenshotsFolder": "test/cypress/screenshots",
+  "supportFile": "test/cypress/support/index.js",
+  "testFiles": "**/*.*",
+  "videosFolder": "test/cypress/videos"
+}

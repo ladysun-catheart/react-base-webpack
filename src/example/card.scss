@@ -1,0 +1,50 @@
+.card {
+    color: white;
+    font-family: 'Roboto';
+    background-image: linear-gradient(90deg, purple, mediumOrchid);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    width: 20rem;
+
+    .header {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    .img{
+        height: 12rem;
+        width: 12rem;
+        border-radius: 0.25rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .desc{
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    .btnLikes{
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .likes{
+        padding: 0.25rem;
+        background-color:deeppink;
+        border-radius: 50%;
+        color:white;
+        font-weight: bold;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-block;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+}
